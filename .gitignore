@@ -1,3 +1,3 @@
 # Added File in GitIgnore to avoid pushing in github
 
-/node_modules
+node_modules
