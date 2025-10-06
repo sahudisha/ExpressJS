@@ -6,7 +6,7 @@ const port = 3000
 // To Serve static page using app.use. Here public folder will be served with default index.html
 // app.use(express.static(path.join(__dirname, 'public')))
 
-// Creating Middleware and calling it from app.use
+// Creating Middleware and calling it from app.use and next() is written basically to call next middle ware if any present or written in code
 // const myMiddleWare = (req, res, next) => {
 //     console.log('Arunesh Middleware')
 //     next();
@@ -18,8 +18,14 @@ app.get('/', (req, res) => {
     res.send('Hello World!')
 })
 
-app.get('/about', (req, res) => {
-    res.send('Hello About!')
+//http://localhost:3000/about/Arunesh URL has to be passed like this
+app.get('/about/:name', (req, res) => {
+    res.send('Hello ' + req.params.name)
+})
+
+//http://localhost:3000/aboutArunesh  URL has to be passed like this
+app.get('/about:name', (req, res) => {
+    res.send('Hello ' + req.params.name)
 })
 
 app.get('/file', (req, res) => {
