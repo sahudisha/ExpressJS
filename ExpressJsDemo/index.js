@@ -18,6 +18,7 @@ app.get('/', (req, res) => {
     res.send('Hello World!')
 })
 
+//Preffered way for passing params from URL as params get seperated using / in URL
 //http://localhost:3000/about/Arunesh URL has to be passed like this
 app.get('/about/:name', (req, res) => {
     res.send('Hello ' + req.params.name)
