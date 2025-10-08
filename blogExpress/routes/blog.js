@@ -31,8 +31,12 @@ router.get('/blogpost/:slug', (req, res) => {
     let myblogs = blogs.filter((e) => {
         return e.slug == req.params.slug
     })
-    // console.log(myblogs)
-    res.sendFile(path.join(__dirname, '../views/BlogPage.html'))
+    // console.log(myblogs) here myblogs is an array
+    res.render('BlogPost', {
+        title: myblogs[0].title,
+        content: myblogs[0].content
+    })
+    // res.sendFile(path.join(__dirname, '../views/BlogPage.html'))
 })
 
 module.exports = router;
