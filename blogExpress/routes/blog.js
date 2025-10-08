@@ -10,22 +10,29 @@ const blogs = require('../data/blogs')
 router.get('/', (req, res) => {
     //res.sendFile requires full file path that needs to be send
     //__dirname means current directory
-    res.sendFile(path.join(__dirname, '../templates/Homepage.html'))
+    // res.sendFile(path.join(__dirname, '../views/Homepage.html'))
+
+    //This is handlebars rendering
+    res.render('home', {
+        blogs: blogs
+    });
 })
 
 router.get('/blog', (req, res) => {
     // blogs.forEach(e => {
     //     console.log(e.title)
     // });
-    res.sendFile(path.join(__dirname, '../templates/BlogHome.html'))
+    res.sendFile(path.join(__dirname, '../views/BlogHome.html'))
 })
 
 router.get('/blogpost/:slug', (req, res) => {
+
+    //this is normal express rendering
     let myblogs = blogs.filter((e) => {
         return e.slug == req.params.slug
     })
     // console.log(myblogs)
-    res.sendFile(path.join(__dirname, '../templates/BlogPage.html'))
+    res.sendFile(path.join(__dirname, '../views/BlogPage.html'))
 })
 
 module.exports = router;

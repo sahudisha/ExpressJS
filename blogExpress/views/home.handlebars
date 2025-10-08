@@ -1,0 +1,12 @@
+<div class="container">This is Home.HandleBars Page Called using HandleBars engine</div>
+
+<ul>
+    {{#each blogs}}
+    {{!-- this.slug is link to blogs each and generates the correct link and using handlbars --}}
+    <li><a href='/blogpost/{{this.slug}}'>{{this.title}}</a></li>
+    <ul>
+        <li>{{this.content}}</li>
+        <li>{{this.slug}}</li>
+    </ul>
+    {{/each}}
+</ul>
